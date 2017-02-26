@@ -136,3 +136,5 @@ ENV/
 # Rope project settings
 .ropeproject
 
+
+video_images/
