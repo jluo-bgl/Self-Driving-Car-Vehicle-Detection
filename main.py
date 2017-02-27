@@ -11,7 +11,7 @@ if __name__ == "__main__":
     # detector = VehicleDetector(img_rows=640, img_cols=960, weights_file="model_segn_small_0p72.h5")
     # lane_finder = LaneFinder(save_original_images=False, object_detection_mask=detector.get_Unet_mask)
     yolo = YoloDetector()
-    lane_finder = LaneFinder(save_original_images=True, object_detection_mask=yolo.process_image_array)
+    lane_finder = LaneFinder(save_original_images=True, object_detection_func=yolo.process_image_array)
     video_file = 'project_video.mp4'
     # video_file = 'challenge_video.mp4'
     # video_file = 'back_home.mov'

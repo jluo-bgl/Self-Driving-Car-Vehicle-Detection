@@ -193,7 +193,6 @@ class FeaturesTest(unittest.TestCase):
         t2 = time.time()
         print(round(t2 - t, 5), 'Seconds to predict', n_predict, 'labels with SVC')
 
-
     def test_hog_should_give_98_acturacy(self):
         car_file_names = glob.glob('../data/vehicles/*/*.png')
         notcar_file_names = glob.glob('../data/non-vehicles/*/*.png')
@@ -318,7 +317,7 @@ class FeaturesTest(unittest.TestCase):
         # image = image.astype(np.float32)/255
 
         windows = slide_window(image, x_start_stop=[None, None], y_start_stop=y_start_stop,
-                               xy_window=(96, 96), xy_overlap=(0.5, 0.5))
+                               xy_window=(350, 200), xy_overlap=(0.1, 0.1))
 
         hot_windows = search_windows(image, windows, svc, X_scaler, color_space=color_space,
                                      spatial_size=spatial_size, hist_bins=hist_bins,
@@ -327,7 +326,7 @@ class FeaturesTest(unittest.TestCase):
                                      hog_channel=hog_channel, spatial_feat=spatial_feat,
                                      hist_feat=hist_feat, hog_feat=hog_feat)
 
-        window_img = draw_boxes(draw_image, hot_windows, color=(0, 0, 255), thick=6)
+        window_img = draw_boxes(draw_image, hot_windows, color=(0, 0, 255), thick=2)
 
         plt.imshow(window_img)
         plt.savefig("../output_images/features_search/test1.png")

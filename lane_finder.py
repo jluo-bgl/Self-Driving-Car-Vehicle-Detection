@@ -51,7 +51,7 @@ class LaneFinder(object):
 
     MAX_REUSED_FRAME = 5
 
-    def __init__(self, save_original_images, object_detection_mask=lambda image: np.zeros_like(image),
+    def __init__(self, save_original_images, object_detection_func=lambda image: np.zeros_like(image),
                  camera_calibration_file="./output_images/camera_calibration_pickle.p"):
         camera_matrix, distortion = load_camera_calibration(camera_calibration_file)
         self.camera_matrix = camera_matrix
@@ -63,7 +63,7 @@ class LaneFinder(object):
         self.last_left_search_base = None
         self.last_right_search_base = None
         self.image_shape = None
-        self.object_detection_mask = object_detection_mask
+        self.object_detection_func = object_detection_func
 
     def process_image(self, image):
         """
@@ -104,15 +104,16 @@ class LaneFinder(object):
 
         # Warp the blank back to original image space using inverse perspective matrix (Minv)
         newwarp = inversion_perspective_transform(color_warp, invent_matrix)
-        # Combine the result with the original image
-        result = cv2.addWeighted(undistored_image, 1, newwarp, 0.5, 0)
-        compose_images(final_image, result, 2, 2, 3)
 
         object_detect_mask = np.zeros_like(undistored_image)
-        object_detect_image = self.object_detection_mask(undistored_image)
-        object_detect_image = cv2.addWeighted(object_detect_image, 1, object_detect_mask, 0.4, 0)
+        object_detect_image = self.object_detection_func(undistored_image)
+        object_detect_image_masked = cv2.addWeighted(object_detect_image, 1, object_detect_mask, 0.4, 0)
 
-        compose_images(final_image, object_detect_image, 2, 2, 4)
+        # Combine the result with the original image
+        result = cv2.addWeighted(object_detect_image, 1, newwarp, 0.5, 0)
+        compose_images(final_image, result, 2, 2, 3)
+
+        compose_images(final_image, object_detect_image_masked, 2, 2, 4)
         self._print_text(final_image, self.process_counter, left_curverad, right_curverad, center_distance)
         self.process_counter += 1
 
@@ -347,7 +348,7 @@ def remove_mp4_extension(file_name):
 
 if __name__ == "__main__":
     detector = VehicleDetector(img_rows=640, img_cols=960, weights_file="model_segn_small_0p72.h5")
-    lane_finder = LaneFinder(save_original_images=False, object_detection_mask=detector.get_Unet_mask)
+    lane_finder = LaneFinder(save_original_images=False, object_detection_func=detector.get_Unet_mask)
     video_file = 'project_video.mp4'
     # video_file = 'challenge_video.mp4'
     clip = VideoFileClip(video_file, audio=False)

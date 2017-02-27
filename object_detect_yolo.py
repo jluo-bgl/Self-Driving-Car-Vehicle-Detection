@@ -189,12 +189,12 @@ if __name__ == "__main__":
         yolo.process_folder(input_folder="test_images", output_folder="output_images/object-detect")
 
     def process_video(yolo):
-        video_file = 'back_home.mov'
+        video_file = 'back_home_fast.mp4'
         # video_file = 'project_video.mp4'
         # video_file = 'challenge_video.mp4'
         clip = VideoFileClip(video_file, audio=False)
-        t_start = 127
-        t_end = 147
+        t_start = 0
+        t_end = 0
         if t_end > 0.0:
             clip = clip.subclip(t_start=t_start, t_end=t_end)
         else:

@@ -172,7 +172,7 @@ class PipeLineTest(unittest.TestCase):
                             font_file_name="../yolo/font/FiraMono-Medium.otf")
         images = glob.glob('../test_images/*.jpg')
         for fname in images:
-            lane_finder = LaneFinder(save_original_images=False, object_detection_mask=yolo.process_image_array,
+            lane_finder = LaneFinder(save_original_images=False, object_detection_func=yolo.process_image_array,
                                      camera_calibration_file="../output_images/camera_calibration_pickle.p")
             image = cv2.imread(fname)
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -185,7 +185,7 @@ class PipeLineTest(unittest.TestCase):
 
         detector = VehicleDetector(img_rows=640, img_cols=960, weights_file="../model_segn_small_0p72.h5")
 
-        lane_finder = LaneFinder(save_original_images=False, object_detection_mask=detector.get_Unet_mask,
+        lane_finder = LaneFinder(save_original_images=False, object_detection_func=detector.get_Unet_mask,
                                  camera_calibration_file="../output_images/camera_calibration_pickle.p")
         image = cv2.imread(fname)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -202,7 +202,7 @@ class PipeLineTest(unittest.TestCase):
                             classes_path="../yolo/model_data/coco_classes.txt",
                             font_file_name="../yolo/font/FiraMono-Medium.otf")
 
-        lane_finder = LaneFinder(save_original_images=False, object_detection_mask=yolo.process_image_array,
+        lane_finder = LaneFinder(save_original_images=False, object_detection_func=yolo.process_image_array,
                                  camera_calibration_file="../output_images/camera_calibration_pickle.p")
         image = cv2.imread(fname)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
