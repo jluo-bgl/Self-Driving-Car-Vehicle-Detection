@@ -6,10 +6,10 @@ In this project, your goal is to write a software pipeline to detect vehicles in
 
 ## Object Detection
 I have spent some time on trying SVM, color and gradient features to detect vehicle, 
-svm has very good training accuracy but when testing in real life the accuracy dropped a lot,
-tunning hyper parameters is a hard work. so that in this project, I trying to apply YOLO
+svm has very good training accuracy but when testing in real life the accuracy dropped a lot. 
+In this project, I spend longer time to apply YOLO
 detector in this project, it succeeded in project video, I then created a video from my iphone
-which was mount in my car, YOLO performed very well on it.
+which was mount in my car, YOLO performed very well on it as well.
 
 ## Project Video (High way)
 In this video, camera calibration has been provided in folder `camera_cal`, lane finding and 
