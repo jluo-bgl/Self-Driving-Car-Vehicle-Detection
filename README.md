@@ -15,7 +15,9 @@ which was mount in my car, YOLO performed very well on it.
 In this video, camera calibration has been provided in folder `camera_cal`, lane finding and 
 object detection images are camera calibrated.
 
-<insert final video>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Fi9j5cr_qEk" target="_blank">
+<img src="http://img.youtube.com/vi/Fi9j5cr_qEk/0.jpg" alt="UDacity Sample Data" width="960" height="540" border="10" /></a>
+
 
 
 ## My Commuting Video
@@ -23,12 +25,17 @@ In this video there are cars in front of me which is the main problem for color 
 lane finding solution, so that I only applied object detecting into this video. we can see that
 YOLO doing a great job here in detecting and tracking cars, traffic lights, etc.
 
-<insert final video>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Fi9j5cr_qEk" target="_blank">
+<img src="http://img.youtube.com/vi/Fi9j5cr_qEk/0.jpg" alt="UDacity Sample Data" width="960" height="540" border="10" /></a>
+
 
 ## YOLO(You Only Look it Once) Object Detection 
 [You only look once (YOLO)](https://pjreddie.com/darknet/yolo/) is a state-of-the-art, 
 real-time object detection system. In this project I'm using [YAD2K project](https://github.com/allanzelener/YAD2K)
 which is a Keras / Tensorflow implementation of YOLO_v2
+
+#####YOLO overall structure
+![YOLO_Overall_Structure](other_images/YOLO_NN.png)
 
 ### How YOLO works
 1. Image will divided into small grid cell, for example 7 * 7
@@ -41,12 +48,11 @@ which is a Keras / Tensorflow implementation of YOLO_v2
 3. Every cell predict the probability of number of classes
 4. Apply a threshold to all bounding_box
 
+![YOLO_Demo](other_images/YOLO_Demo.png)
+
 if we split image into 7 * 7 grid cell, each cell predict 2 bounding boxes, and we have 20 classes want to predict,
 the total output would be 7 * 7 * （2 * 5 + 20) = 1470
 ![YOLO_Parameters](other_images/YOLO_Parameters.jpeg)
-
-![YOLO_Overall_Structure](other_images/YOLO_NN.png)
-![YOLO_Demo](other_images/YOLO_Demo.png)
 
 ### YOLO code in this project
 The main code located in `object_detect_yolo.py`, all support files are in `yolo` folder.
