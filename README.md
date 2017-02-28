@@ -43,10 +43,10 @@ which is a Keras / Tensorflow implementation of YOLO_v2
 
 if we split image into 7 * 7 grid cell, each cell predict 2 bounding boxes, and we have 20 classes want to predict,
 the total output would be 7 * 7 * （2 * 5 + 20) = 1470
-[YOLO_Parameters](other_images/YOLO_Parameters.jpeg)
+![YOLO_Parameters](other_images/YOLO_Parameters.jpeg)
 
-[YOLO_Overall_Structure](other_images/YOLO_NN.png)
-[YOLO_Demo](other_images/YOLO_Demo.png)
+![YOLO_Overall_Structure](other_images/YOLO_NN.png)
+![YOLO_Demo](other_images/YOLO_Demo.png)
 
 ### YOLO code in this project
 The main code located in `object_detect_yolo.py`, all support files are in `yolo` folder.
@@ -60,8 +60,8 @@ return back bounding_boxes, scores and classes, for example:
 - scores=[0.68]
 - classes=[2]
 
-[Test Image](test_images/602.jpg)
-[Output Image](output_images/object-detect/602.jpg)
+![Test Image](test_images/602.jpg)
+![Output Image](output_images/object-detect/602.jpg)
 
 For more test images, please visit [object detect folder](output_images/object-detect/)
 
@@ -71,6 +71,6 @@ by default, it's a lambda which return a black image ```object_detection_func=la
 
 Undistored image will pass into object_detection_func and been added into final result.
 
-[Test Image](test_images/602.jpg)
-[Combined Result](output_images/lane/combine_602.jpg.png)
+![Test Image](test_images/602.jpg)
+![Combined Result](output_images/lane/combine_602.jpg.png)
 
