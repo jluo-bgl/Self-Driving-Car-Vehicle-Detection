@@ -40,11 +40,11 @@ which is a Keras / Tensorflow implementation of YOLO_v2
 ### How YOLO works
 1. Image will divided into small grid cell, for example 7 * 7
 2. Every cell predict number of bounding box, every box contains
-- center_point_x
-- center_point_y
-- bounding_box_width
-- bounding_box_height
-- object_probability 
+  - center_point_x
+  - center_point_y
+  - bounding_box_width
+  - bounding_box_height
+  - object_probability 
 3. Every cell predict the probability of number of classes
 4. Apply a threshold to all bounding_box
 
@@ -66,8 +66,7 @@ return back bounding_boxes, scores and classes, for example:
 - scores=[0.68]
 - classes=[2]
 
-![Test Image](test_images/602.jpg)
-![Output Image](output_images/object-detect/602.jpg)
+![Test Image](test_images/602.jpg =250x) ![Output Image](output_images/object-detect/602.jpg =250x)
 
 For more test images, please visit [object detect folder](output_images/object-detect/)
 
