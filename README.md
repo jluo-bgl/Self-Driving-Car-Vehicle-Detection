@@ -66,7 +66,7 @@ return back bounding_boxes, scores and classes, for example:
 - scores=[0.68]
 - classes=[2]
 
-![Test Image](test_images/602.jpg =250x) ![Output Image](output_images/object-detect/602.jpg =250x)
+![Test Image](test_images/602.jpg =250x100) ![Output Image](output_images/object-detect/602.jpg =250x)
 
 For more test images, please visit [object detect folder](output_images/object-detect/)
 
