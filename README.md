@@ -25,8 +25,8 @@ In this video there are cars in front of me which is the main problem for color 
 lane finding solution, so that I only applied object detecting into this video. we can see that
 YOLO doing a great job here in detecting and tracking cars, traffic lights, etc.
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Fi9j5cr_qEk" target="_blank">
-<img src="http://img.youtube.com/vi/Fi9j5cr_qEk/0.jpg" alt="UDacity Sample Data" width="960" height="540" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=OksuVuNY5o0" target="_blank">
+<img src="http://img.youtube.com/vi/OksuVuNY5o0/0.jpg" alt="UDacity Sample Data" width="960" height="540" border="10" /></a>
 
 
 ## YOLO(You Only Look it Once) Object Detection 
