@@ -2,7 +2,7 @@
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 
-In this project, your goal is to write a software pipeline to detect vehicles in a video (start with the test_video.mp4 and later implement on full project_video.mp4), but the main output or product we want you to create is a detailed writeup of the project.  Check out the [writeup template](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.  
+In this project, your goal is to write a software pipeline to detect vehicles in a video (start with the test_video.mp4 and later implement on full project_video.mp4)
 
 ## Object Detection
 I have spent some time on trying SVM, color and gradient features to detect vehicle, 
@@ -33,6 +33,8 @@ YOLO doing a great job here in detecting and tracking cars, traffic lights, etc.
 [You only look once (YOLO)](https://pjreddie.com/darknet/yolo/) is a state-of-the-art, 
 real-time object detection system. In this project I'm using [YAD2K project](https://github.com/allanzelener/YAD2K)
 which is a Keras / Tensorflow implementation of YOLO_v2
+
+>please note as we using YAD2K project, we have to install the specific version documented in YAD2K project page.
 
 #####YOLO overall structure
 ![YOLO_Overall_Structure](other_images/YOLO_NN.png)
@@ -77,6 +79,23 @@ by default, it's a lambda which return a black image ```object_detection_func=la
 
 Undistored image will pass into object_detection_func and been added into final result.
 
-![Test Image](test_images/602.jpg)
 ![Combined Result](output_images/lane/combine_602.jpg.png)
+![Combined Result](output_images/lane/combine_746.jpg.png)
+
+
+##Discussion
+1. Handle picked features not generalize enough
+> As the experience in P3 advanced lane finding, and some experience in this project, I think the color, color space, 
+gradient features with SVM or Decision Tress are not generalize enough, I think it's really depends on parameters 
+which human provide, where deep learning approch is more define the lose function and let computer figure out what's
+the best parameters, as long as we have lots of training data, it can do better then human picked parameters.
+
+2. YOLO works really well
+>The project video works really well as it dosen't have many elements
+My own video able to identify vehicles, traffic lights and a person on bicycle
+
+3. a heat-map or moving average solution would beneficial still
+>I noticed that it will miss some object in some frame, so that if we create a heat map based on history data would 
+help this. For example a Car has been detected in last 3 frame, we have very high confidence that it will appear 
+in frame 4 and 5, however still not detected in frame 6, we can remove it away from our list.
 
