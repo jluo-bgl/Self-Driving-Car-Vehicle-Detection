@@ -7,9 +7,14 @@ In this project, your goal is to write a software pipeline to detect vehicles in
 ## Object Detection
 I have spent some time on trying SVM, color and gradient features to detect vehicle, 
 svm has very good training accuracy but when testing in real life the accuracy dropped a lot. 
-In this project, I spend longer time to apply YOLO
-detector in this project, it succeeded in project video, I then created a video from my iphone
-which was mount in my car, YOLO performed very well on it as well.
+As the experience I have in p4 advanced lane finding and lots of reading about it, I 
+think continue this way could make me pass the project video, but not able to handle my own 
+video. All the work was in `test` folder, `test_features.py` and `test_window.py`.
+
+In this project, I spend majority of my time trying to reach out for other options. I like SSD, 
+U-NET, Faster-RCNN, but YOLO was my choice as it's fast while remains good result.
+The result was good. it succeeded in project video, I then created a video from my iphone
+which was mount in my car, YOLO performed very well on it.
 
 ## Project Video (High way)
 In this video, camera calibration has been provided in folder `camera_cal`, lane finding and 
@@ -34,7 +39,7 @@ YOLO doing a great job here in detecting and tracking cars, traffic lights, etc.
 real-time object detection system. In this project I'm using [YAD2K project](https://github.com/allanzelener/YAD2K)
 which is a Keras / Tensorflow implementation of YOLO_v2
 
->please note as we using YAD2K project, we have to install the specific version documented in YAD2K project page.
+>please note as we using YAD2K project, we have to install the specific keras version documented in YAD2K project page.
 
 #####YOLO overall structure
 ![YOLO_Overall_Structure](other_images/YOLO_NN.png)
