@@ -92,10 +92,13 @@ the best parameters, as long as we have lots of training data, it can do better 
 
 2. YOLO works really well
 >The project video works really well as it dosen't have many elements
-My own video able to identify vehicles, traffic lights and a person on bicycle
+My own video was not focused properly, but still YOLO able to identify vehicles, traffic lights and a person on bicycle
+![Traffic](other_images/TrafficLightsAndVehicles.png)
+![Person](other_images/Person.png)
 
 3. a heat-map or moving average solution would beneficial still
->I noticed that it will miss some object in some frame, so that if we create a heat map based on history data would 
-help this. For example a Car has been detected in last 3 frame, we have very high confidence that it will appear 
-in frame 4 and 5, however still not detected in frame 6, we can remove it away from our list.
+>I noticed that it will miss some object in some frame, if we lower the threshold which resulting more object
+been detected, at the same time create a heat map based on history data. 
+For example a Car has been detected in last 3 frame, we have very high confidence that it will appear 
+in frame 4 and 5, however if still not detected in frame 6, we can remove it away from our list.
 
