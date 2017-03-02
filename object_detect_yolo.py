@@ -28,6 +28,7 @@ class YoloDetector(object):
 
         self.sess = K.get_session()
         self.yolo_model = load_model(model_path)
+        self.yolo_model.summary()
 
         anchors = self._read_anchors(anchors_path)
         self._validate_model_and_data(self.class_names, anchors, self.yolo_model)
@@ -204,7 +205,7 @@ if __name__ == "__main__":
         clip.write_videofile("{}_output_detect.mp4".format(remove_mp4_extension(video_file)), audio=False)
 
     yolo = YoloDetector()
-    # process_folder(yolo)
-    process_video(yolo)
+    process_folder(yolo)
+    # process_video(yolo)
     yolo.shutdown()
 
