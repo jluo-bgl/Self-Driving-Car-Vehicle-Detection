@@ -93,6 +93,7 @@ to original image shape
 #### Non maximum suppression
 It is possibly network found lots of bounding boxes, in this case we use Non-maximum suppression to get the 
 best result. code `yolo_eval` method in [`keras-yolo.py`](yolo/yad2k/models/keras_yolo.py)
+
 ![Non-maximum-suppression](other_images/Non-maximum-suppression.jpeg)
 
 ### YOLO code in this project
