@@ -23,8 +23,6 @@ object detection images are camera calibrated.
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Fi9j5cr_qEk" target="_blank">
 <img src="http://img.youtube.com/vi/Fi9j5cr_qEk/0.jpg" alt="UDacity Sample Data" width="960" height="540" border="10" /></a>
 
-
-
 ## My Commuting Video
 In this video there are cars in front of me which is the main problem for color and gradient
 lane finding solution, so that I only applied object detecting into this video. we can see that
@@ -302,3 +300,23 @@ Trainable params: 67,445,065
 Non-trainable params: 20,544
 ____________________________________________________________________________________________________
 ```
+
+# Run This Project
+## Install Miniconda
+Documentation: https://conda.io/docs/install/quick.html
+```bash
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+## Install all dependencies
+https://conda.io/docs/using/envs.html#share-an-environment
+```bash
+conda env create -f environment.yml
+```
+
+`python --version` to check python version, you should have python 3.5
+
+## Main EntryPoint
+[./main.py](main.py)
